@@ -140,3 +140,15 @@ Develop and Collaborate: Develop your machine learning models, code, and data in
 Continuous Integration: Set up CI/CD pipelines in Google Cloud to automate training and deployment processes when changes are pushed to the repository.
 
 Version Control: Use Git to track changes, create branches for different experiments, and maintain a history of your work.
+
+
+
+resource "null_resource" "check_existing_vms" {
+  provisioner "local-exec" {
+    command = "gcloud compute instances list --project your-project-id --format=json"
+  }
+}
+
+output "any_vms_exist" {
+  value = length(jsondecode(null_resource.check_existing_vms[0].stdout)) > 0
+}
