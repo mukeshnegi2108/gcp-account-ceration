@@ -1,0 +1,56 @@
+POC: Enabling GCP APIs with Terraform and terraform destroy Behavior
+Objective
+The goal of this Proof of Concept (POC) is to demonstrate that when using Terraform to enable Google Cloud Platform (GCP) APIs and then running terraform destroy, the API will not be disabled if associated resources of that API still exist. This POC will help us understand how Terraform handles API enablement and the cleanup process during the destruction of resources.
+
+Prerequisites
+Google Cloud Platform (GCP) account with appropriate permissions
+Terraform installed and configured
+Basic knowledge of GCP services and Terraform
+POC Steps
+Step 1: Terraform Configuration
+Create a Terraform configuration file (main.tf) that enables a GCP API. For example, you can enable the GCP Cloud Storage API:
+
+provider "google" {
+  credentials = file("path/to/your/credentials.json")
+  project     = "your-project-id"
+  region      = "us-central1"
+}
+
+resource "google_project_service" "cloud_storage" {
+  project = "your-project-id"
+  service = "storage.googleapis.com"
+}
+
+
+Step 2: Initialize and Apply
+Run the following Terraform commands to initialize the working directory and apply the configuration:
+
+terraform init
+terraform apply
+
+
+Step 3: Create Resources
+Create some resources associated with the enabled API. For example, you can create a GCP Cloud Storage bucket:
+
+resource "google_storage_bucket" "example_bucket" {
+  name          = "example-bucket"
+  location      = "US"
+  force_destroy = true
+}
+
+
+Step 4: Verify API Status
+Check the status of the API and the associated resources in the GCP Console to ensure they are enabled and operational.
+
+Step 5: Terraform Destroy
+Now, run the terraform destroy command to remove the resources:
+
+terraform destroy
+
+
+Step 6: Verify API Status Again
+After running terraform destroy, verify the status of the GCP API in the GCP Console to confirm whether it's still enabled, even if the associated resources (e.g., the Cloud Storage bucket) have been destroyed.
+
+Conclusion
+Based on the results of this POC, it should be evident whether Terraform retains the enabled status of a GCP API when running terraform destroy in the presence of associated resources. This documentation provides insights into the behavior and functionality of Terraform in managing GCP APIs and resources.
+
