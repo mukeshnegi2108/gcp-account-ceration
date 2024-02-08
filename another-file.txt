@@ -321,3 +321,22 @@ Provide links to relevant documentation, tutorials, and additional resources.
 Slide 12: Thank You
 
 Express appreciation for the audience's time and attention.
+
+
+
+
+Dear Google Support Team,
+
+I hope this email finds you well. We are currently in the process of provisioning Vertex AI Workbench for our project, and we have encountered some confusions that we would like to address. We have referred to the documentation provided by Google, but there seem to be discrepancies in our understanding. I would appreciate it if you could assist us in clarifying these matters.
+
+Private Workbench Instances:
+We are seeking clarification on the use and configuration of private workbench instances within Vertex AI Workbench. Our understanding is that private workbench instances provide additional security and control over the environment. However, we are uncertain about the exact steps and configurations required to set up and manage these instances effectively. Could you please provide detailed guidance or point us to relevant resources that can help us understand the provisioning and management process better?
+
+Vertex AI Notebooks Provisioning via GAR Container Images:
+Our team has successfully launched Vertex AI Notebooks using private images in Google Artifact Registry (GAR). However, we have noticed that the official documentation appears to suggest a different method for provisioning Vertex AI Notebooks. According to our interpretation, the documentation implies that notebooks should be provisioned using a different approach. We would like to confirm whether using GAR container images for notebook provisioning is a valid and supported method. If so, could you provide further clarification on the recommended approach or any best practices associated with this method?
+
+We are eager to ensure that our implementation aligns with the best practices and recommendations provided by Google to maximize the benefits of Vertex AI Workbench for our project. Your assistance in clarifying these matters would be greatly appreciated and will help us proceed with confidence in our deployment.
+
+Thank you for your attention to this matter. We look forward to your prompt response and assistance.
+
+Warm regards,
